@@ -135,6 +135,13 @@ public class FileUtil {
         return FileUtil.isSameOrSubDirectory(Environment.getDataDirectory(), file);
     }
 
+    // Checks if the file is in /data, and don't allow any app to send personal information.
+    // We're told it's possible to create world readable hardlinks to other apps private data
+    // so we ban all /data file uris. b/28793303
+    public static boolean isInDataDir(File file) {
+        return isSameOrSubDirectory(Environment.getDataDirectory(), file);
+    }
+
     /**
      * Checks, whether the child directory is the same as, or a sub-directory of the base
      * directory.
