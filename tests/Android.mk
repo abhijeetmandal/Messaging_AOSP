@@ -32,6 +32,8 @@ LOCAL_CERTIFICATE := platform
 LOCAL_STATIC_JAVA_LIBRARIES := \
     mockito-target
 
+LOCAL_JAVA_LIBRARIES := android.test.mock.sdk legacy-android-test
+
 include $(BUILD_PACKAGE)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
